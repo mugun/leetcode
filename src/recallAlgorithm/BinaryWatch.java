@@ -14,6 +14,9 @@ public class BinaryWatch {
         return res;
     }
     public static void add(List<Integer> res,int[] table,int n,boolean[] flag) {
-    	if
+    	int count=0;
+    	for(int i=0;i<flag.length;i++) {
+    		if(flag[i]==true)
+    	}
     }
 }

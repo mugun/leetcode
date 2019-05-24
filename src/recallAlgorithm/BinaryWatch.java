@@ -13,10 +13,26 @@ public class BinaryWatch {
         }
         return res;
     }
-    public static void add(List<Integer> res,int[] table,int n,boolean[] flag) {
+    public static void add(List<Integer> res,int[] table,int n,boolean[] flag,int sum) {
     	int count=0;
     	for(int i=0;i<flag.length;i++) {
     		if(flag[i]==true)
+    			count++;
+    	}
+    	
+    	if(count==n) {
+    		res.add(sum);
+    		return;
+    	}
+    	
+    	for(int i=0;i<table.length;i++) {
+    		if(flag[i])
+    			continue;
+    		flag[i]=true;
+    		sum+=table[i];
+    		add(res,table,n,flag,sum);
+    		flag[i]=false;
+    		sum-=table[i];
     	}
     }
 }
